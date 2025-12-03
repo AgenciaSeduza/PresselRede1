@@ -30,18 +30,15 @@
     .warning{font-size:12px;color:#ffb38f;text-align:center;margin-top:10px;font-weight:600;}
   </style>
 
-  <!-- TikTok Pixel NOVO -->
+  <!-- NOVO PIXEL TIKTOK: D4O7DHBC77UA1JCQ5MO0 -->
   <script>
     !function (w, d, t) {
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
       ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],
       ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
       for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-      ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",
-      o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};
-      var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src=r+"?sdkid="+e+"&lib="+t;
-      var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(s,a)};
-      ttq.load('D4MVHL3C77UCJ0N6NA8G');
+      ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src=r+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(s,a)};
+      ttq.load('D4O7DHBC77UA1JCQ5MO0');
       ttq.page();
     }(window, document, 'ttq');
   </script>
@@ -66,10 +63,10 @@
   <div class="warning">CONTEÚDO PARA MAIORES DE 18 ANOS</div>
 </div>
 
-<!-- Events API + Pixel com token novo -->
+<!-- NOVA API EVENTS COM TOKEN 942bac3f4381b4525a640f556c75a070dc24f056 -->
 <script>
-  const PIXEL_ID = 'D4MVHL3C77UCJ0N6NA8G';
-  const ACCESS_TOKEN = '34352b17020ab938 2a048d40a1e839b978416dab';
+  const PIXEL_ID = 'D4O7DHBC77UA1JCQ5MO0';
+  const ACCESS_TOKEN = '942bac3f4381b4525a640f556c75a070dc24f056';
   const API_ENDPOINT = 'https://business-api.tiktok.com/open_api/v1.3/event/track/';
 
   function generateEventId(eventName) {
@@ -95,7 +92,6 @@
         ...extraProps
       }
     };
-
     try {
       await fetch(API_ENDPOINT, {
         method: 'POST',
@@ -108,13 +104,13 @@
     } catch (err) {}
   }
 
-  // ViewContent ao carregar
+  // ViewContent ao carregar a página
   window.addEventListener('load', () => {
     sendTikTokServerEvent('ViewContent');
     if (window.ttq) ttq.track('ViewContent');
   });
 
-  // InitiateCheckout no clique
+  // InitiateCheckout no clique do botão
   document.getElementById('enter-btn').addEventListener('click', () => {
     sendTikTokServerEvent('InitiateCheckout', { value: 18.00 });
     if (window.ttq) {
