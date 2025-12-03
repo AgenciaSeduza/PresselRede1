@@ -29,19 +29,6 @@
     @keyframes shine{0%{transform:translateX(-100%) translateY(-100%) rotate(30deg);opacity:0;}50%{opacity:1;}100%{transform:translateX(100%) translateY(100%) rotate(30deg);opacity:0;}}
     .warning{font-size:12px;color:#ffb38f;text-align:center;margin-top:10px;font-weight:600;}
   </style>
-
-  <!-- NOVO PIXEL TIKTOK: D4O7DHBC77UA1JCQ5MO0 -->
-  <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-      ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],
-      ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
-      for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-      ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src=r+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(s,a)};
-      ttq.load('D4O7DHBC77UA1JCQ5MO0');
-      ttq.page();
-    }(window, document, 'ttq');
-  </script>
 </head>
 <body>
 <div class="card">
@@ -63,35 +50,37 @@
   <div class="warning">CONTEÚDO PARA MAIORES DE 18 ANOS</div>
 </div>
 
-<!-- NOVA API EVENTS COM TOKEN 942bac3f4381b4525a640f556c75a070dc24f056 -->
+<!-- APENAS API EVENTS (SEM SDK) - NOVO PIXEL D4O8U9JC77UA1JCQ5P30 -->
 <script>
-  const PIXEL_ID = 'D4O7DHBC77UA1JCQ5MO0';
-  const ACCESS_TOKEN = '942bac3f4381b4525a640f556c75a070dc24f056';
+  const PIXEL_ID = 'D4O8U9JC77UA1JCQ5P30';
+  const ACCESS_TOKEN = 'df349851296e7145f67406e2558c06c72b4ad2e9';
   const API_ENDPOINT = 'https://business-api.tiktok.com/open_api/v1.3/event/track/';
+  const PRICE = 18.00;
 
-  function generateEventId(eventName) {
-    return `${eventName}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  function genId(event) {
+    return `${event}_${Date.now()}_${Math.random().toString(36).substr(2,9)}`;
   }
 
-  async function sendTikTokServerEvent(eventName, extraProps = {}) {
+  async function send(eventName, extra = {}) {
     const payload = {
       pixel_code: PIXEL_ID,
       event: eventName,
-      event_id: generateEventId(eventName),
+      event_id: genId(eventName),
       timestamp: new Date().toISOString(),
       context: {
         user_agent: navigator.userAgent,
-        page: { url: window.location.href, referrer: document.referrer || '' }
+        page: { url: location.href }
       },
       properties: {
+        currency: 'BRL',
+        value: PRICE,
         content_type: 'product_group',
         content_id: 'REDE_SECRETA_VIP',
         content_name: 'Rede Secreta VIP',
-        currency: 'BRL',
-        value: 18.00,
-        ...extraProps
+        ...extra
       }
     };
+
     try {
       await fetch(API_ENDPOINT, {
         method: 'POST',
@@ -101,21 +90,17 @@
         },
         body: JSON.stringify(payload)
       });
-    } catch (err) {}
+    } catch(e) {}
   }
 
-  // ViewContent ao carregar a página
+  // ViewContent ao carregar
   window.addEventListener('load', () => {
-    sendTikTokServerEvent('ViewContent');
-    if (window.ttq) ttq.track('ViewContent');
+    send('ViewContent');
   });
 
-  // InitiateCheckout no clique do botão
+  // InitiateCheckout no clique
   document.getElementById('enter-btn').addEventListener('click', () => {
-    sendTikTokServerEvent('InitiateCheckout', { value: 18.00 });
-    if (window.ttq) {
-      ttq.track('InitiateCheckout', { value: 18.00, currency: 'BRL' });
-    }
+    send('InitiateCheckout');
   });
 </script>
 </body>
