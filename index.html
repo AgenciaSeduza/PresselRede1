@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>REDE SECRETA - Redirecionando...</title>
+  <title>Rede Secreta</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
 
   <style>
@@ -25,50 +25,59 @@
       width:92%;
       max-width:330px;
       background:#0f0a0f;
-      border-radius:20px;
+      border-radius:22px;
       border:2px solid #ff1f5f;
-      padding:18px 14px;
-      box-shadow:0 0 25px rgba(255,31,95,0.25);
+      padding:22px 16px;
+      box-shadow:0 0 38px rgba(255,31,95,0.25);
+    }
+
+    .title{
+      font-size:32px;
+      font-weight:900;
+      margin-bottom:12px;
+      background:linear-gradient(90deg, #ff1f5f, #ff4b8f, #ff8fc7);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 18px rgba(255,31,95,0.4);
     }
 
     img.tutorial-img{
       width:100%;
       max-width:200px;
       border-radius:12px;
-      margin:10px auto;
+      margin:12px auto 16px;
       border:2px solid #ff4b8f;
+      box-shadow:0 0 18px rgba(255,75,143,0.25);
       display:block;
-      box-shadow:0 0 15px rgba(255,75,143,0.25);
     }
 
-    .loading-text{
-      font-size:16px;
-      font-weight:700;
-      margin-top:10px;
-      color:#ff8fb8;
+    .btn{
+      display:block;
+      background:linear-gradient(45deg,#ff1f5f,#ff4b8f);
+      color:#fff;
+      font-size:18px;
+      font-weight:900;
+      text-decoration:none;
+      padding:14px;
+      border-radius:50px;
+      margin:10px auto 6px;
+      width:86%;
+      text-align:center;
+      box-shadow:0 8px 22px rgba(255,31,95,0.35);
+      transition:0.2s;
     }
 
-    .loader{
-      margin:14px auto;
-      width:38px;
-      height:38px;
-      border:4px solid #ff4b8f;
-      border-top:4px solid transparent;
-      border-radius:50%;
-      animation:spin 1s linear infinite;
+    .btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 25px rgba(255,75,143,0.5);
     }
 
-    @keyframes spin{
-      0%{transform:rotate(0deg);}
-      100%{transform:rotate(360deg);}
-    }
-
-    .redirect-link{
+    .warning{
+      font-size:11px;
       margin-top:12px;
-      font-size:13px;
       color:#ffb6d4;
-      text-decoration:underline;
-      display:block;
+      font-weight:600;
+      opacity:0.8;
     }
   </style>
 </head>
@@ -77,23 +86,17 @@
 
 <div class="card">
 
+  <div class="title">Rede Secreta</div>
+
   <img src="foto.jpg" class="tutorial-img" alt="Imagem">
 
-  <div class="loading-text">Aguarde, redirecionando...</div>
-
-  <div class="loader"></div>
-
-  <a class="redirect-link" href="https://apextry.com/go/tktkadsrede">
-    Se não for redirecionado, clique aqui
+  <a class="btn" href="https://apextry.com/go/tktkadsrede" target="_blank">
+    ENTRAR AGORA →
   </a>
 
-</div>
+  <div class="warning">Conteúdo exclusivo para maiores de 18 anos</div>
 
-<script>
-  setTimeout(function(){
-    window.location.href = "https://apextry.com/go/tktkadsrede";
-  }, 2500); // 2,5 segundos
-</script>
+</div>
 
 </body>
 </html>
