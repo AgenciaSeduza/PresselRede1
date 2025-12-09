@@ -9,25 +9,6 @@
   <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
 
-  <!-- 🔥 FingerprintJS Pro -->
-  <script src="https://fpjscdn.net/v3/fingerprintjs-pro.min.js"></script>
-  <script>
-    const fpPromise = FingerprintJS.load({
-      apiKey: "WG9FIw2huxuKD78n2ejc",
-      region: "us"
-    });
-
-    fpPromise
-      .then(fp => fp.get())
-      .then(result => {
-        const botScore = result.bot?.probability || 0;
-        if (botScore > 0.65) {
-          window.location.href = "https://www.google.com";
-        }
-      })
-      .catch(err => console.error(err));
-  </script>
-
   <!-- ✅ TIKTOK PIXEL – 3 CONTAS -->
   <script>
   !function (w, d, t) {
@@ -157,20 +138,6 @@ document.getElementById("enter-btn").addEventListener("click", function () {
     button_name: 'ENTRAR_AGORA'
   });
 });
-</script>
-
-<!-- ✅ Anti-bot comportamental -->
-<script>
-let human=false;
-document.addEventListener("mousemove",()=>human=true);
-document.addEventListener("keydown",()=>human=true);
-document.addEventListener("touchstart",()=>human=true);
-
-setTimeout(()=>{
-  if(!human){
-    window.location.href="https://www.google.com";
-  }
-},1200);
 </script>
 
 </body>
